@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rca_app/aim/presentation/providers/auth_provider.dart';
+import 'package:rca_app/iam/presentation/providers/auth_provider.dart';
 // import 'package:go_router/go_router.dart';
 import 'package:rca_app/shared/shared.dart';
 
@@ -49,7 +49,7 @@ class SideMenuState extends ConsumerState<SideMenu> {
 
           Padding(
             padding: EdgeInsets.fromLTRB(20, hasNotch ? 0 : 20, 16, 0),
-            child: Text('Ur Provider', style: textStyles.titleMedium ),
+            child: Text('Rca', style: textStyles.titleMedium ),
           ),
 
           Padding(
@@ -57,10 +57,9 @@ class SideMenuState extends ConsumerState<SideMenu> {
             child: Text('Welcome', style: textStyles.titleSmall ),
           ),
 
-          ListTile(
-            title: Text('Providers'),
-            leading: Icon(Icons.store_mall_directory_rounded),
-
+          const ListTile(
+            title: Text('Vehicles'),
+            leading: Icon(Icons.car_rental),
           ),
 
 
