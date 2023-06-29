@@ -28,7 +28,7 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/vehicles/:id',
       builder: (context, state) =>
-          VehicleScreen(vehicleId: int.parse(state.params['id'] ?? '0')),
+            VehicleScreen(vehicleId: int.parse(state.params['id'] ?? '0')),
     ),
 
     GoRoute(
