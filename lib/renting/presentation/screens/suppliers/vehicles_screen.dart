@@ -48,7 +48,7 @@ class _VehiclesViewState extends ConsumerState<_VehiclesView> {
         itemBuilder: (context, index) {
           final vehicle = vehiclesState.vehicles[index];
           return GestureDetector(
-            onTap: () => context.push('/vehicles/${vehicle.ownerId}'),
+            onTap: () => context.push('/vehicles/${vehicle.id}'),
             child: VehicleCard(vehicle: vehicle),
           );
         },

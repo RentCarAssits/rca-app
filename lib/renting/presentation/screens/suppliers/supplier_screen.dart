@@ -2,64 +2,60 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:rca_app/shared/shared.dart';
 
-/*
-class SupplierScreen extends ConsumerWidget {
-  final int supplierId;
+import '../../../../shared/widgets/custom_product_field.dart';
+import '../../../../shared/widgets/full_screen_loader.dart';
+import '../../../domain/entities/vehicle.dart';
+import '../../providers/vehicle/forms/vehicle_form_provider.dart';
+import '../../providers/vehicle/provider/vehicle_provider.dart';
 
-  const SupplierScreen({super.key, required this.supplierId});
+class VehicleScreen extends ConsumerWidget {
+  final int vehicleId;
+
+  const VehicleScreen({Key? key, required this.vehicleId}) : super(key: key);
 
   void showSnackbar(BuildContext context) {
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context)
-        .showSnackBar(const SnackBar(content: Text('Supplier Actualizado')));
+        .showSnackBar(const SnackBar(content: Text('Vehicle Updated')));
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final supplierState = ref.watch(supplierProvider(supplierId));
+    final vehicleState = ref.watch(vehicleProvider(vehicleId));
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Supplier Details '),
+          title: const Text('Vehicle Request'),
           actions: [
             IconButton(
                 onPressed: () {}, icon: const Icon(Icons.camera_alt_outlined))
           ],
         ),
-        body: supplierState.isLoading
+        body: vehicleState.isLoading
             ? const FullScreenLoader()
-            : _SupplierView(supplier: supplierState.supplier!),
+            : _VehicleView(vehicle: vehicleState.vehicle!),
         floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            if (supplierState.supplier == null) return;
-            context.go('/supplier/${supplierState.supplier!.id}/products');
-            ref
-                .read(supplierFormProvider(supplierState.supplier!).notifier)
-                .onFormSubmit()
-                .then((value) {
-              if (!value) return;
-              showSnackbar(context);
-            });
-          },
-          icon: const Icon(Icons.remove_red_eye),
-          label: const Text("Ver productos del proveedor"),
+          icon: const Icon(Icons.car_rental),
+          label: const Text("Request"),
+          onPressed: () {},
         ),
       ),
     );
   }
 }
 
-class _SupplierView extends ConsumerWidget {
-  final Supplier supplier;
+class _VehicleView extends ConsumerWidget {
+  final Vehicle vehicle;
 
-  const _SupplierView({required this.supplier});
+  const _VehicleView({required this.vehicle});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final supplierForm = ref.watch(supplierFormProvider(supplier));
+    final vehicleForm = ref.watch(vehicleFormProvider(vehicle));
 
     final textStyles = Theme.of(context).textTheme;
 
@@ -70,65 +66,63 @@ class _SupplierView extends ConsumerWidget {
           width: 600,
           child: FadeInImage.assetNetwork(
             placeholder: 'assets/images/no-image.jpg',
-            image: supplierForm.image,
+            image: vehicleForm.image,
             fit: BoxFit.cover,
           ),
         ),
         const SizedBox(height: 10),
         Center(
             child: Text(
-          supplierForm.supplierName,
+          vehicleForm.name,
           style: textStyles.titleSmall,
           textAlign: TextAlign.center,
         )),
         const SizedBox(height: 10),
-        _SupplierInformation(supplier: supplier),
+        _VehicleInformation(vehicle: vehicle),
       ],
     );
   }
 }
 
-class _SupplierInformation extends ConsumerWidget {
-  final Supplier supplier;
+class _VehicleInformation extends ConsumerWidget {
+  final Vehicle vehicle;
 
-  const _SupplierInformation({required this.supplier});
+  const _VehicleInformation({required this.vehicle});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final supplierForm = ref.watch(supplierFormProvider(supplier));
+    final vehicleForm = ref.watch(vehicleFormProvider(vehicle));
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Provider general Data'),
+          const Text('Vehicle Information'),
           const SizedBox(height: 15),
-          CustomProductField(
-            label: 'Name',
-            initialValue: supplierForm.name,
-          ),
-          CustomProductField(
+          CustomVehicleField(
             maxLines: 4,
-            label: 'Decription',
-            initialValue: supplier.description,
+            label: 'Name',
+            text: vehicleForm.name,
           ),
-          const SizedBox(height: 10),
-          CustomProductField(
-            maxLines: 2,
-            label: 'address',
-            initialValue: supplierForm.address,
+          const SizedBox(height: 20),
+          CustomVehicleField(
+            maxLines: 4,
+            label: 'Description',
+            text: vehicleForm.integrity,
           ),
-          const SizedBox(height: 10),
-          CustomProductField(
-            maxLines: 2,
-            label: 'Category',
-            initialValue: supplierForm.category,
+          const SizedBox(height: 20),
+          CustomVehicleField(
+            maxLines: 4,
+            label: 'Year',
+            text: vehicleForm.year.toString(),
+            isDate: true,
           ),
+
+          const SizedBox(height: 20),
           const SizedBox(height: 100),
         ],
       ),
     );
   }
 }
-*/

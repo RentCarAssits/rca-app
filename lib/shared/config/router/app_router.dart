@@ -1,4 +1,3 @@
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rca_app/iam/iam.dart';
@@ -11,7 +10,6 @@ import 'package:rca_app/renting/presentation/screens/screens.dart';
 final appRouter = GoRouter(
   initialLocation: '/login',
   routes: [
-
     ///Iam
     GoRoute(
       path: '/login',
@@ -27,18 +25,23 @@ final appRouter = GoRouter(
       path: '/vehicles',
       builder: (context, state) => const VehiclesScreen(),
     ),
+    GoRoute(
+      path: '/vehicles/:id',
+      builder: (context, state) =>
+          VehicleScreen(vehicleId: int.parse(state.params['id'] ?? '0')),
+    ),
 
     GoRoute(
       path: '/renter-renting-order-items',
       builder: (context, state) => const RenterRentingOrdenItemsScreen(),
     ),
 
-     GoRoute(
+    GoRoute(
       path: '/accepted-renting-order-items',
       builder: (context, state) => const AcceptedRentingOrdenItemsScreen(),
     ),
 
-     GoRoute(
+    GoRoute(
       path: '/owner-renting-order-items',
       builder: (context, state) => const RentingOrdenItemsByVehicleScreen(),
     ),

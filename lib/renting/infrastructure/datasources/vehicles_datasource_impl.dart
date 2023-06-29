@@ -15,14 +15,23 @@ class VehiclesDatasourceImpl extends VehiclesDatasource {
   ///Vehicles
   @override
   Future<Vehicle> getVehicleById(int id) async {
-    final response = await dio.get('/vehicles/$id');
-    final data = response.data;
+    final response = await dio.get<Map<String, dynamic>>('/vehicles/$id');
 
-    ///print(response);
-    final vehicle = VehicleMapper.jsonToEntity(data);
+    Vehicle? vehicle;
+    if (response.data != null) {
+      final result = response.data?['result'];
+      print(result);
+      if (result != null) {
+        vehicle = VehicleMapper.jsonToEntity(result);
+      }
+    }
 
+    if (vehicle == null) {
+      throw Exception('Failed to load vehicle');
+    }
     return vehicle;
   }
+
 
   @override
   Future<List<Vehicle>> getAllVehicles() async {
@@ -31,6 +40,7 @@ class VehiclesDatasourceImpl extends VehiclesDatasource {
     final List<Vehicle> vehicles = [];
     if (response.data != null) {
       final results = response.data?['result'];
+      print(results);
       if (results != null) {
         for (final vehicle in results) {
           vehicles.add(VehicleMapper.jsonToEntity(vehicle));

@@ -2,6 +2,7 @@
 import 'package:rca_app/iam/domain/domain.dart';
 
 class Vehicle {
+  final int? id;
   final String name;
   final String brand;
   final String model;
@@ -17,6 +18,7 @@ class Vehicle {
   final List<String> categories;
 
   Vehicle({
+    this.id,
     required this.name,
     required this.brand,
     required this.model,
