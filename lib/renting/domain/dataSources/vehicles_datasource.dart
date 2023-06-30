@@ -5,5 +5,4 @@ abstract class VehiclesDatasource {
 
   Future<List<Vehicle>> getAllVehicles();
 
-
 }
