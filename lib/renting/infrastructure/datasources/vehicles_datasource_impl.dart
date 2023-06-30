@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:rca_app/shared/config/config.dart';
-import 'package:rca_app/renting/domain/domain.dart';
+import 'package:rca_app/renting/domain/dataSources/vehicles_datasource.dart';
+import 'package:rca_app/renting/domain/entities/vehicle.dart';
 import 'package:rca_app/renting/infrastructure/mappers/vehicle_mapper.dart';
 
 class VehiclesDatasourceImpl extends VehiclesDatasource {
