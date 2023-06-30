@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rca_app/renting/domain/domain.dart';
+import 'package:rca_app/renting/domain/entities/vehicle.dart';
+import 'package:rca_app/renting/domain/repositories/vehicles_repository.dart';
 import 'package:rca_app/renting/presentation/providers/vehicle/provider/vehicles_repository_provider.dart';
 
 

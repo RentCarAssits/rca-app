@@ -1,10 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:formz/formz.dart';
-import 'package:flutter/widgets.dart';
-import 'package:rca_app/shared/config/constants/environment.dart';
-import 'package:rca_app/renting/domain/domain.dart';
-import 'package:rca_app/renting/presentation/providers/providers.dart';
-import 'package:rca_app/shared/shared.dart';
+import 'package:rca_app/renting/domain/entities/vehicle.dart';
 
 final vehicleFormProvider = StateNotifierProvider.autoDispose
     .family<VehicleFormNotifier, VehicleFormState, Vehicle>((ref, vehicle) {

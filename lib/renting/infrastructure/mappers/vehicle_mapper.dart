@@ -1,4 +1,4 @@
-import 'package:rca_app/renting/domain/domain.dart';
+import 'package:rca_app/renting/domain/entities/vehicle.dart';
 
 class VehicleMapper {
       static Vehicle jsonToEntity(Map<String, dynamic> json) => Vehicle(

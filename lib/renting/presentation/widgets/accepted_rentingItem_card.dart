@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rca_app/renting/domain/domain.dart';
+import 'package:rca_app/renting/domain/entities/rentingOrderItem.dart';
 
 class AcceptedRentingOrderItemCard extends StatelessWidget {
   final RentingOrderItem item;

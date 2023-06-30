@@ -1,4 +1,4 @@
-import 'package:rca_app/renting/domain/domain.dart';
+import 'package:rca_app/renting/domain/repositories/vehicles_repository.dart';
 import 'package:rca_app/renting/infrastructure/datasources/vehicles_datasource_impl.dart';
 import 'package:rca_app/renting/infrastructure/repositories/vehicles_repository_impl.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
