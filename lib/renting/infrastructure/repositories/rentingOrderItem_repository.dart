@@ -1,4 +1,4 @@
-import 'package:rca_app/renting/domain/datasources/rentingOrderItem_datasource.dart';
+import 'package:rca_app/renting/domain/datasource/rentingOrderItem_datasource.dart';
 import 'package:rca_app/renting/domain/entities/rentingOrderItem.dart';
 import 'package:rca_app/renting/domain/repositories/rentingOrderItem_repository.dart';
 

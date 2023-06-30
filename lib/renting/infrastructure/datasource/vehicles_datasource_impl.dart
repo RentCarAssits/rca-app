@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:rca_app/renting/domain/dataSources/vehicles_datasource.dart';
+import 'package:rca_app/renting/domain/datasource/vehicles_datasource.dart';
 import 'package:rca_app/renting/domain/entities/vehicle.dart';
 import 'package:rca_app/renting/infrastructure/mappers/vehicle_mapper.dart';
 

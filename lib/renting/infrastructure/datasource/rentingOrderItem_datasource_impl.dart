@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:rca_app/renting/domain/datasources/rentingOrderItem_datasource.dart';
+import 'package:rca_app/renting/domain/datasource/rentingOrderItem_datasource.dart';
 import 'package:rca_app/renting/domain/entities/rentingOrderItem.dart';
 import 'package:rca_app/renting/infrastructure/mappers/rentingOrderItem_mapper.dart';
 
