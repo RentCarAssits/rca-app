@@ -4,7 +4,6 @@ import 'package:rca_app/shared/config/config.dart';
 import 'package:stack_trace/stack_trace.dart' as stack_trace;
 
 void main() async {
-  await Environment.initEnvironment();
 
   runApp(const ProviderScope(child: MyApp()));
   FlutterError.demangleStackTrace = (StackTrace stack) {
