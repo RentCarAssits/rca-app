@@ -6,7 +6,7 @@ class User {
   String userName;
   String email;
   String password;
-  String roles;
+  List<String> roles;
   Profile? profile;
   Account? account;
   String token;
@@ -22,7 +22,13 @@ class User {
     required this.token,
   });
 
-  bool get isAdmin {
-    return roles.contains('admin');
+  bool get isOwner {
+    return roles.contains('owner');
+  }
+  bool get isRenter {
+    return roles.contains('renter');
+  }
+  bool get isMechanic {
+    return roles.contains('mechanic');
   }
 }

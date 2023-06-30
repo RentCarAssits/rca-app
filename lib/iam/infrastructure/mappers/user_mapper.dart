@@ -10,7 +10,7 @@ class UserMapper {
     userName: json['userName'] as String? ?? '',
     email: json['email'] as String? ?? '',
     password: json['password'] as String? ?? '',
-    roles: json['roles'] as String ?? '',
+    roles: List<String>.from(json['roles']),
     profile: json['profile'] != null ? ProfileMapper.profileJsonToEntity(json['profile'] as Map<String, dynamic>) : null,
     account: json['account'] != null ? AccountMapper.accountJsonToEntity(json['account'] as Map<String, dynamic>) : null,
     token: json['token'] as String? ?? '',

@@ -6,7 +6,7 @@ import 'package:rca_app/iam/infrastructure/infrastructure.dart';import 'package:
 
 class AuthDataSourceImpl extends AuthDataSource {
   final dio = Dio(BaseOptions(
-    baseUrl: ('https://192.168.18.17:8080/api/v1'),
+    baseUrl: ('https://rca.azurewebsites.net/api/v1'),
   ));
 
   @override
@@ -21,9 +21,16 @@ class AuthDataSourceImpl extends AuthDataSource {
     try {
       final response = await dio
           .post('/auth/login', data: {'email': email, 'password': password});
-      print('response.data ${response}');
-      final user = UserMapper.userJsonToEntity(response.data);
-      print(response.data);
+
+      User? user;
+      if (response.data != null) {
+        user = UserMapper.userJsonToEntity(response.data);
+        print(user);
+      }
+
+      if (user == null) {
+        throw Exception('Failed to load user');
+      }
       return user;
     } on DioException catch (e) {
       if (e.response?.statusCode == 401) {

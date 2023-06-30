@@ -9,7 +9,7 @@ class VehiclesDatasourceImpl extends VehiclesDatasource {
 
   VehiclesDatasourceImpl({required this.accessToken})
       : dio = Dio(BaseOptions(
-            baseUrl: ('http://localhost:8080/api/v1'),
+            baseUrl: ('https://rca.azurewebsites.net/api/v1'),
             headers: {'Authorization': 'Bearer $accessToken'}));
 
   ///Vehicles
@@ -20,7 +20,7 @@ class VehiclesDatasourceImpl extends VehiclesDatasource {
     Vehicle? vehicle;
     if (response.data != null) {
       final result = response.data?['result'];
-      print(result);
+      //print(result);
       if (result != null) {
         vehicle = VehicleMapper.jsonToEntity(result);
       }
@@ -40,7 +40,7 @@ class VehiclesDatasourceImpl extends VehiclesDatasource {
     final List<Vehicle> vehicles = [];
     if (response.data != null) {
       final results = response.data?['result'];
-      print(results);
+
       if (results != null) {
         for (final vehicle in results) {
           vehicles.add(VehicleMapper.jsonToEntity(vehicle));

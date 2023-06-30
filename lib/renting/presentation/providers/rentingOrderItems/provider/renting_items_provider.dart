@@ -6,7 +6,7 @@ final rentingItemsByUserProvider =
     StateNotifierProvider<RentingOrderItemsNotifier, RentingOrderItemsState>(
         (ref) {
   final vehicleRepository = ref.watch(rentingOrderItemRepositoryProvider);
-  final userId = 2;
+  final userId = 38;
   return RentingOrderItemsNotifier(
       rentingOrderItemRepository: vehicleRepository, userId: userId);
 });
