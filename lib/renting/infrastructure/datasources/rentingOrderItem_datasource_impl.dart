@@ -9,7 +9,7 @@ class RentingOrderItemDatasourceImpl extends RentingOrderItemDatasource {
    
   RentingOrderItemDatasourceImpl({required this.accessToken})
       : dio = Dio(BaseOptions(
-            baseUrl: ('https://rca.azurewebsites.net/api/v1'),
+            baseUrl: ('https://rca-iot-parsimonia.azurewebsites.net/api/v1'),
             headers: {'Authorization': 'Bearer $accessToken'}));
 
   @override
