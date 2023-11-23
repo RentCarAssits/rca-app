@@ -6,7 +6,7 @@ import 'package:rca_app/iam/infrastructure/infrastructure.dart';import 'package:
 
 class AuthDataSourceImpl extends AuthDataSource {
   final dio = Dio(BaseOptions(
-    baseUrl: ('https://rca.azurewebsites.net/api/v1'),
+    baseUrl: ('https://rca-iot-parsimonia.azurewebsites.net/api/v1'),
   ));
 
   @override
