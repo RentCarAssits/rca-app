@@ -9,7 +9,7 @@ class VehiclesDatasourceImpl extends VehiclesDatasource {
 
   VehiclesDatasourceImpl({required this.accessToken})
       : dio = Dio(BaseOptions(
-            baseUrl: ('https://rca.azurewebsites.net/api/v1'),
+            baseUrl: ('https://rca-iot-parsimonia.azurewebsites.net/api/v1'),
             headers: {'Authorization': 'Bearer $accessToken'}));
 
   ///Vehicles
